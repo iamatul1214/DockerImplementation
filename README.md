@@ -105,13 +105,13 @@ git remote add origin https://github.com/Avnish327030/wafer_circleci.git
 git push -u origin main
 ```
 
-## create a account at circle ci
+## create an account at circle ci
 
 <a href="https://circleci.com/login/">Circle CI</a>
 
 ## setup your project 
 
-<a href="https://app.circleci.com/projects/github/Avnish327030/setup/"> Setup project </a>
+<a href="https://app.circleci.com/pipelines/github/iamatul1214/DockerImplementation"> Setup project </a>
 
 ## Select project setting in CircleCI and below environment variable
 
@@ -122,3 +122,6 @@ git push -u origin main
 >HEROKU_EMAIL_ADDRESS
 
 >DOCKER_IMAGE_NAME=<wafercircle3270303>
+> 
+> 
+## Now everytime you push any changes to git repository, the circle CI will look for config.yaml file and will do the auto deployment, Hence we achieved our CI/CD along with some basic unit testing as well
