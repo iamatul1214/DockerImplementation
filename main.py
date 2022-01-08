@@ -2,20 +2,22 @@
 from flask import Flask
 
 from wsgiref import simple_server
-
-from flask import Flask, session, request, Response, jsonify
-
-
-
-import atexit
-import uuid
 import os
+from flask import Flask, session, request, Response, jsonify
+from dotenv import load_dotenv
+load_dotenv()
+
+key_value=os.getenv("Key_value")
+
+
+
 app = Flask(__name__)
+
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return "Flask app is running and this is the change in second commit"
+    return "Flask app is running and this is the {0} key value".format(key_value)
 
 port = int(os.getenv("PORT", 5001))
 
