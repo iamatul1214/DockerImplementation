@@ -1,7 +1,7 @@
 
 from flask import Flask
-from google.cloud import storage
-from google.oauth2 import service_account
+# from google.cloud import storage
+# from google.oauth2 import service_account
 from wsgiref import simple_server
 import os
 import ast
@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 key_value=os.getenv("Key_value")
-# sample_json={"user":os.getenv("user"),"password":os.getenv("password"),"age":os.getenv("age"),"height":os.getenv("height")}
+sample_json={"user":os.getenv("user"),"password":os.getenv("password"),"age":os.getenv("age"),"height":os.getenv("height")}
 creds=os.getenv('creds')
 creds1=ast.literal_eval(creds)
 print(type(creds1))
@@ -22,7 +22,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return "Flask app is running and this is the {0} overall dict, now the account type is {1}".format(creds1,creds1['type'])
+    return "Flask app is running successfully and below is the json for it ".format(sample_json)
 
 port = int(os.getenv("PORT", 5001))
 
