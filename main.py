@@ -22,7 +22,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return "Flask app is running successfully and below is the json for it ".format(sample_json)
+    return f"Flask app is running successfully and below is the json for it {sample_json}"
 
 port = int(os.getenv("PORT", 5001))
 
