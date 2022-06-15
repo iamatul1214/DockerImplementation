@@ -8,12 +8,13 @@ import ast
 from flask import Flask, session, request, Response, jsonify
 from dotenv import load_dotenv
 load_dotenv()
+import pandas as pd
 
-key_value=os.getenv("Key_value")
-sample_json={"user":os.getenv("user"),"password":os.getenv("password"),"age":os.getenv("age"),"height":os.getenv("height")}
-creds=os.getenv('creds')
-creds1=ast.literal_eval(creds)
-print(type(creds1))
+# key_value=os.getenv("Key_value")
+# sample_json={"user":os.getenv("user"),"password":os.getenv("password"),"age":os.getenv("age"),"height":os.getenv("height")}
+# creds=os.getenv('creds')
+# creds1=ast.literal_eval(creds)
+# print(type(creds1))
 
 
 app = Flask(__name__)
@@ -23,19 +24,23 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     root = os.getcwd()
-    # print(os.getcwd())
-    test_dir = os.path.join(os.getcwd(),"Testing_directory")
+    print(os.getcwd())
+    # test_dir = os.path.join(os.getcwd(),"Testing_directory")
+    test_dir = os.path.join("Testing_directory")
     os.makedirs(test_dir, exist_ok=True)
     os.chdir(test_dir)
     # os.mkdir("Testing_directory")
     # os.chdir("Testing_directory")
     data = {'Name': ['Tom', 'Joseph', 'Krish', 'John'], 'Age': [20, 21, 19, 18]}
     df = pd.DataFrame(data)
-    df.to_csv("Testing_df.csv")
+    outfile = open('Testing_df.csv', 'wb')
+    df.to_csv('Testing_df.csv')
     df_new = pd.read_csv("Testing_df.csv")
     print(df_new)
     print(df.shape)
     shape = df_new.shape
+    # os.close("Testing_df.csv")
+    outfile.close()
     # os.rmdir(os.path.join(root,test_dir))
     return f"Flask app is running and shape = {shape}"
     # return f"Flask app is running successfully and below is the json for it {sample_json}"
