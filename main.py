@@ -31,7 +31,7 @@ def index():
     os.chdir(test_dir)
     # os.mkdir("Testing_directory")
     # os.chdir("Testing_directory")
-    data = {'Name': ['Tom', 'Joseph', 'Krish', 'John'], 'Age': [20, 21, 19, 18]}
+    data = {'Name': ['Tom', 'Joseph', 'Krish', 'John','Ravi','Elias'], 'Age': [20, 21, 19, 18,28,31]}
     df = pd.DataFrame(data)
     outfile = open('Testing_df.csv', 'wb')
     df.to_csv('Testing_df.csv')
